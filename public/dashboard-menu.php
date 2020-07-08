@@ -201,7 +201,7 @@
                                 </a>
                             </center>
 
-                            <br><br><br><br>
+                            <br><br>
 
                             <div class="body">
                                 <div class="alert alert-success">
