@@ -6,7 +6,7 @@ function is_login()
 		session_start();
 	}
 
-	if (isset($_SESSION['user'])) {
+	if (isset($_SESSION['apogee'])) {
 		return true;
 	}
 

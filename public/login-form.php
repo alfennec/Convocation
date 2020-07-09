@@ -1,20 +1,13 @@
 <?php
 
     include_once('includes/config.php');
-    // start session
-    //session_start();
 
-    $setting_qry    = "SELECT * FROM tbl_purchase_code ORDER BY id DESC LIMIT 1";
-    $setting_result = mysqli_query($connect, $setting_qry);
-    $settings_row   = mysqli_fetch_assoc($setting_result);
-    $purchase_code    = $settings_row['item_purchase_code'];
 
     // if user click Login button
     if(isset($_POST['btnLogin'])) {
 
         // get username and password
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $apogee = $_POST['apogee'];
 
         // set time for session timeout
         $currentTime = time() + 25200;
@@ -24,32 +17,26 @@
         $error = array();
 
         // check whether $username is empty or not
-        if(empty($username)) {
-            $error['username'] = "*Username should be filled.";
+        if(empty($apogee)) {
+            $error['apogee'] = "*Entre votre apogée.";
         }
 
-        // check whether $password is empty or not
-        if(empty($password)) {
-            $error['password'] = "*Password should be filled.";
-        }
+       
 
         // if username and password is not empty, check in database
-        if(!empty($username) && !empty($password)) 
+        if(!empty($apogee)) 
         {
 
             // change username to lowercase
-            $username = strtolower($username);
-
-            //encript password to sha256
-            $password = hash('sha256',$username.$password);
+            $apogee = strtolower($apogee);
 
             // get data from user table
-            $sql_query = "SELECT * FROM tbl_admin WHERE username = ? AND password = ?";
+            $sql_query = "SELECT * FROM convocation WHERE apogee = ? ";
 
             $stmt = $connect->stmt_init();
             if($stmt->prepare($sql_query)) {
                 // Bind your variables to replace the ?s
-                $stmt->bind_param('ss', $username, $password);
+                $stmt->bind_param('s', $apogee);
                 // Execute query
                 $stmt->execute();
                 /* store result */
@@ -57,13 +44,13 @@
                 $num = $stmt->num_rows;
                 // Close statement object
                 $stmt->close();
-                if($num == 1) 
+                if($num != 0) 
                 {
-                    $_SESSION['user'] = $username;
+                    $_SESSION['apogee'] = $apogee;
                     $_SESSION['timeout'] = $currentTime + $expired;
                     header("location: dashboard.php");
                 } else {
-                    $error['failed'] = "Invalid Username or Password!";
+                    $error['failed'] = "Votre numéro Apogée n'est pas valide !";
                 }
             }
 

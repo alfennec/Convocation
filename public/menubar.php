@@ -1,32 +1,88 @@
 <?php include 'includes/config.php' ?>
-<?php require_once 'roles.php'; ?>
-
 
 <?php
-
-    $username = $_SESSION['user'];
-    $sql_query = "SELECT id, username, full_name, email FROM tbl_admin WHERE username = ?";
+    $apogee = $_SESSION['apogee'];
+    $sql_query = "SELECT * FROM convocation WHERE apogee = ? ";
             
     // create array variable to store previous data
     $data = array();
+
+    
+		$stmt = $connect->stmt_init();
+        if ($stmt->prepare($sql_query)) 
+        {	
+			// Bind your variables to replace the ?s
+			$stmt->bind_param('s', $apogee);
+			
+			// Execute query
+			$stmt->execute();
+			// store result 
+			$stmt->store_result();
+			$stmt->bind_result( 
+                $data['id'],
+                $data['examen'],
+                $data['apogee'],
+                $data['nom'],
+                $data['prenom'],
+                $data['mod1'],
+                $data['mod2'],
+                $data['mod3'],
+                $data['mod4'],
+                $data['mod5'],
+                $data['mod6'],
+                $data['mod7'],
+                $data['semestre'],
+                $data['local'],
+                $data['session'],
+                $data['num_table']
+					);
+			// get total records
+			$total_records = $stmt->num_rows;
+        }
+        
+        $id = array();
+        $examen = array();
+        $apogee = array();
+        $nom = array();
+        $prenom = array();
+        $mod1 = array();
+        $mod2 = array();
+        $mod3 = array();
+        $mod4 = array();
+        $mod5 = array();
+        $mod6 = array();
+        $mod7 = array();
+        $semestre = array();
+        $local = array();
+        $session = array();
+        $num_table = array();
+
+        $i=0;
+        while ($stmt->fetch()) 
+        { 
+            $id[$i]=        $data['id'];
+            $examen[$i]=    $data['examen'];
+            $apogee[$i]=    $data['apogee'];
+            $nom[$i]=       $data['nom'];
+            $prenom[$i]=    $data['prenom'];
+            $mod1[$i] = $data['mod1'];
+            $mod2[$i] = $data['mod2'];
+            $mod3[$i] = $data['mod3'];
+            $mod4[$i] = $data['mod4'];
+            $mod5[$i] = $data['mod5'];
+            $mod6[$i] = $data['mod6'];
+            $mod7[$i] = $data['mod7'];
+            $semestre[$i] = $data['semestre'];
+            $local[$i] = $data['local'];
+            $session[$i] = $data['session'];
+            $num_table[$i] = $data['num_table'];
+
+            $i++;
+        }
             
-    $stmt = $connect->stmt_init();
-    if($stmt->prepare($sql_query)) {
-        // Bind your variables to replace the ?s
-        $stmt->bind_param('s', $username);          
-        // Execute query
-        $stmt->execute();
-        // store result 
-        $stmt->store_result();
-        $stmt->bind_result(
-            $data['id'],
-            $data['username'],
-            $data['full_name'],
-            $data['email']
-            );
-        $stmt->fetch();
-        $stmt->close();
-    }
+    
+
+    
             
 ?>
 
@@ -211,9 +267,9 @@
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <?php echo $data['full_name'] ?>
+                    <?php echo $nom[0]." ".$prenom[0]; ?>
                     </div>
-                    <div class="email"><?php echo $data['email'] ?></div>
+                    <div class="email"><?php echo "Apogée : ".$apogee[0]; ?></div>
                 </div>
             </div>
             <!-- #User Info -->
@@ -233,6 +289,10 @@
                             <i class="material-icons">power_settings_new</i>
                             <span>Déconnexion</span>
                         </a>
+                    </li>
+
+                    <li>
+                        <?php echo  $total_records; ?>
                     </li>
 
                 </ul>

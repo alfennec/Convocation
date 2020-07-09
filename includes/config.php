@@ -4,7 +4,7 @@
     $host       = "localhost";
     $user       = "root";
     $pass       = "";
-    $database   = "api_etude";
+    $database   = "api_convocation";
 
     $connect = new mysqli($host, $user, $pass, $database);
 

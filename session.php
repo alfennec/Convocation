@@ -8,7 +8,7 @@
 	$expired = 3600;
 	
 	// if session not set go to login page
-	if(!isset($_SESSION['user'])){
+	if(!isset($_SESSION['apogee'])){
 		header("location:index.php");
 	}
 	
