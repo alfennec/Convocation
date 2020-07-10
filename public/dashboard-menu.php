@@ -1,5 +1,11 @@
 <?php
 
+    $id_cal = array();
+    $semestre_cal = array();
+    $date_day = array();
+    $date_heure = array();
+    $module = array();
+
   $sql_category = "SELECT COUNT(*) as num FROM convocation";
   $total_category = mysqli_query($connect, $sql_category);
   $total_category = mysqli_fetch_array($total_category);
@@ -9,6 +15,44 @@
   $total_radio = mysqli_query($connect, $sql_news);
   $total_radio = mysqli_fetch_array($total_radio);
   $total_radio = $total_radio['num'];*/
+
+  function getCal($connect, $semestre)
+  {
+        $sql_query = "SELECT * FROM calendrier WHERE semestre = ? ";
+        $data = array();
+		$stmt = $connect->stmt_init();
+        if ($stmt->prepare($sql_query)) 
+        {	
+			// Bind your variables to replace the ?s
+			$stmt->bind_param('s', $semestre);
+			
+			// Execute query
+			$stmt->execute();
+			// store result 
+			$stmt->store_result();
+			$stmt->bind_result( 
+                $data['id'],
+                $data['semestre'],
+                $data['date_day'],
+                $data['date_heure'],
+                $data['module']
+					);
+			// get total records
+			$total_records = $stmt->num_rows;
+        }
+
+        $i=0;
+        while ($stmt->fetch()) 
+        { 
+            $GLOBALS['id_cal'][$i]  =    $data['id'];
+            $GLOBALS['semestre_cal'][$i]   =    $data['semestre'];
+            $GLOBALS['date_day'][$i]       =    $data['date_day'];
+            $GLOBALS['date_heure'][$i]     =    $data['date_heure'];
+            $GLOBALS['module'][$i]         =    $data['module'];
+           
+            $i++;
+        }
+  }
 
 ?>
 
@@ -115,7 +159,10 @@
 
                             <br>
 
-                            <?php for($i=0; $i< sizeof($nom); $i++){ ?>
+                            <?php for($i=0; $i< sizeof($nom); $i++)
+                                    { 
+                                        getCal($connect, $semestre[$i])
+                            ?>
                             <h4>Filière/Semetre : <?php echo $semestre[$i]; ?></h4>
 
                             <div class="table-responsive">
@@ -130,19 +177,90 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php //for($i=0; $i< 7; $i++){ ?>
+
+                                        <?php if($mod1[$i] == "I"){ ?>
                                             <tr>
-                                                <td><span class="label bg-green">1</span></td>
-                                                <td>Task A</td>
-                                                <td><span class="label bg-green">Doing</span></td>
-                                                <td>BERMED</td>
+                                                <td><span class="label bg-green"><?php echo $examen[$i]; ?></span></td>
+                                                <td><?php echo $module[0]; ?></td>
+                                                <td><?php echo $date_day[0]; ?></td>
+                                                <td><?php echo $date_heure[0]; ?></td>
                                                 <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar bg-green" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100" style="width: 62%"></div>
-                                                    </div>
+                                                    <span class="label bg-green"> <?php echo $local[$i]; ?> </span>
                                                 </td>
                                             </tr>
-                                        <?php //} ?>
+                                        <?php } ?>
+
+                                        <?php if($mod2[$i] == "I"){ ?>
+                                            <tr>
+                                                <td><span class="label bg-green"><?php echo $examen[$i]; ?></span></td>
+                                                <td><?php echo $module[1]; ?></td>
+                                                <td><?php echo $date_day[1]; ?></td>
+                                                <td><?php echo $date_heure[1]; ?></td>
+                                                <td>
+                                                    <span class="label bg-green"> <?php echo $local[$i]; ?> </span>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+
+                                        <?php if($mod3[$i] == "I"){ ?>
+                                            <tr>
+                                                <td><span class="label bg-green"><?php echo $examen[$i]; ?></span></td>
+                                                <td><?php echo $module[2]; ?></td>
+                                                <td><?php echo $date_day[2]; ?></td>
+                                                <td><?php echo $date_heure[2]; ?></td>
+                                                <td>
+                                                    <span class="label bg-green"> <?php echo $local[$i]; ?> </span>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+
+                                        <?php if($mod4[$i] == "I"){ ?>
+                                            <tr>
+                                                <td><span class="label bg-green"><?php echo $examen[$i]; ?></span></td>
+                                                <td><?php echo $module[3]; ?></td>
+                                                <td><?php echo $date_day[3]; ?></td>
+                                                <td><?php echo $date_heure[3]; ?></td>
+                                                <td>
+                                                    <span class="label bg-green"> <?php echo $local[$i]; ?> </span>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+
+                                        <?php if($mod5[$i] == "I"){ ?>
+                                            <tr>
+                                                <td><span class="label bg-green"><?php echo $examen[$i]; ?></span></td>
+                                                <td><?php echo $module[4]; ?></td>
+                                                <td><?php echo $date_day[4]; ?></td>
+                                                <td><?php echo $date_heure[4]; ?></td>
+                                                <td>
+                                                    <span class="label bg-green"> <?php echo $local[$i]; ?> </span>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+
+                                        <?php if($mod6[$i] == "I"){ ?>
+                                            <tr>
+                                                <td><span class="label bg-green"><?php echo $examen[$i]; ?></span></td>
+                                                <td><?php echo $module[5]; ?></td>
+                                                <td><?php echo $date_day[5]; ?></td>
+                                                <td><?php echo $date_heure[5]; ?></td>
+                                                <td>
+                                                    <span class="label bg-green"> <?php echo $local[$i]; ?> </span>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+
+                                        <?php if($mod7[$i] == "I"){ ?>
+                                            <tr>
+                                                <td><span class="label bg-green"><?php echo $examen[$i]; ?></span></td>
+                                                <td><?php echo $module[6]; ?></td>
+                                                <td><?php echo $date_day[6]; ?></td>
+                                                <td><?php echo $date_heure[6]; ?></td>
+                                                <td>
+                                                    <span class="label bg-green"> <?php echo $local[$i]; ?> </span>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  jeu. 09 juil. 2020 à 14:09
+-- Généré le :  ven. 10 juil. 2020 à 13:13
 -- Version du serveur :  10.4.6-MariaDB
 -- Version de PHP :  7.3.9
 
@@ -21,6 +21,137 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `api_convocation`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `calendrier`
+--
+
+CREATE TABLE `calendrier` (
+  `id` int(11) NOT NULL,
+  `semestre` varchar(200) NOT NULL,
+  `date_day` varchar(200) NOT NULL,
+  `date_heure` varchar(200) NOT NULL,
+  `module` varchar(200) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `calendrier`
+--
+
+INSERT INTO `calendrier` (`id`, `semestre`, `date_day`, `date_heure`, `module`) VALUES
+(1, 'SM-S2', '9/8/2020', '09h00-10h00', 'Electrostat-Electrocin'),
+(2, 'SM-S2', '9/8/2020', '10h00-11h00', 'Optique géométrique'),
+(3, 'SM-S2', '9/10/2020', '09h00-10h00', 'Liaisons chimiques'),
+(4, 'SM-S2', '9/10/2020', '10h00-11h00', 'Chimie des solutions'),
+(5, 'SM-S2', '9/12/2020', '09h00-10h00', 'Analyse 2'),
+(6, 'SM-S2', '9/12/2020', '10h00-11h00', 'Algèbre 2'),
+(7, 'SM-S2', '9/14/2020', '09h00-10h00', 'Langue 2 et terminologie 2'),
+(8, 'SMP-S4', '9/7/2020', '09h00-10h00', 'Electricité 3'),
+(9, 'SMP-S4', '9/7/2020', '10h00-11h00', 'Mécanique quantique'),
+(10, 'SMP-S4', '9/9/2020', '09h00-10h00', 'Optique physique'),
+(11, 'SMP-S4', '9/9/2020', '10h00-11h00', 'Informatique'),
+(12, 'SMP-S4', '9/11/2020', '09h00-10h00', 'Electronique de base'),
+(13, 'SMP-S4', '9/11/2020', '10h00-11h00', 'Cristallographie géométrique-cristallochimie'),
+(14, 'SMP-S6', '9/8/2020', '15h00-16h00', 'Ondes et vibrations'),
+(15, 'SMP-S6', '9/8/2020', '16h00-17h00', 'Physique subatomique'),
+(16, 'SMP-S6', '9/10/2020', '15h00-16h00', 'Mécanique des fluides-transfert thermique'),
+(17, 'SMP-S6', '9/10/2020', '16h00-17h00', 'Détéction et mesure de rayonnement'),
+(18, 'SMP-S6', '9/12/2020', '15h00-16h00', ' Projet tutoré 1 '),
+(19, 'SMC-S4', '9/7/2020', '09h00-10h00', 'Hydrocarbures - fonctions monovalentes'),
+(20, 'SMC-S4', '9/7/2020', '10h00-11h00', 'Mécanique quantique'),
+(21, 'SMC-S4', '9/9/2020', '09h00-10h00', 'Thermodynamique chimique'),
+(22, 'SMC-S4', '9/9/2020', '10h00-11h00', 'Informatique'),
+(23, 'SMC-S4', '9/11/2020', '09h00-10h00', 'Probabilités et statistiques'),
+(24, 'SMC-S4', '9/11/2020', '10h00-11h00', 'Cristallographie géométrique-cristallochimie'),
+(25, 'SMC-S6-TC', '9/8/2020', '15h00-16h00', 'Les grandes classes des réactions organiques'),
+(26, 'SMC-S6-TC', '9/8/2020', '16h00-17h00', 'Chimie descriptive2 - chimie de coordination'),
+(27, 'SMC-S6-TC', '9/10/2020', '15h00-16h00', 'Tech. séparat  classiques et  chromatographiques'),
+(28, 'SMC-S6-TC', '9/12/2020', '15h00-16h00', ' Projet tutoré 1 '),
+(29, 'SMC-S6-1', '9/8/2020', '15h00-16h00', 'Les grandes classes des réactions organiques'),
+(30, 'SMC-S6-1', '9/8/2020', '16h00-17h00', 'Chimie descriptive2 - chimie de coordination'),
+(31, 'SMC-S6-1', '9/10/2020', '15h00-16h00', 'Tech. séparat  classiques et  chromatographiques'),
+(32, 'SMC-S6-1', '9/12/2020', '15h00-16h00', ' Projet tutoré 1 '),
+(33, 'SMC-S6-4', '9/8/2020', '15h00-16h00', 'Les grandes classes des réactions organiques'),
+(34, 'SMC-S6-4', '9/8/2020', '16h00-17h00', 'Chimie descriptive2 - chimie de coordination'),
+(35, 'SMC-S6-4', '9/10/2020', '15h00-16h00', 'Tech. séparat  classiques et  chromatographiques'),
+(36, 'SMC-S6-4', '9/12/2020', '15h00-16h00', ' Projet tutoré 1 '),
+(37, 'SMC-S6-5', '9/8/2020', '15h00-16h00', 'Les grandes classes des réactions organiques'),
+(38, 'SMC-S6-5', '9/8/2020', '16h00-17h00', 'Chimie descriptive2 - chimie de coordination'),
+(39, 'SMC-S6-5', '9/10/2020', '15h00-16h00', 'Tech. séparat  classiques et  chromatographiques'),
+(40, 'SMC-S6-5', '9/12/2020', '15h00-16h00', ' Projet tutoré 1 '),
+(41, 'SMC-S6-1', '9/10/2020', '16h00-17h00', '1: Hétérocycles aromatiques et produits naturels'),
+(42, 'SMC-S6-4', '9/10/2020', '16h00-17h00', '4: Génie chimique et applications'),
+(43, 'SMC-S6-5', '9/10/2020', '16h00-17h00', '5: Chimie de l’environnement'),
+(44, 'SVT-S2', '9/7/2020', '15h00-16h00', 'Chimie organique'),
+(45, 'SVT-S2', '9/7/2020', '16h00-17h00', 'Physique 2 '),
+(46, 'SVT-S2', '9/9/2020', '15h00-16h00', 'Géodynamique externe'),
+(47, 'SVT-S2', '9/9/2020', '16h00-17h00', 'Géodynamique interne'),
+(48, 'SVT-S2', '9/11/2020', '15h00-16h00', 'Biologie des organismes végétaux'),
+(49, 'SVT-S2', '9/11/2020', '16h00-17h00', 'Biologie des organismes animaux'),
+(50, 'SVT-S2', '9/14/2020', '10h00-11h00', 'Langue 2 et terminologie 2'),
+(51, 'SVI-S4', '9/8/1900', '15h00-16h00', 'Enzymologie et biochimie métabolique'),
+(52, 'SVI-S4', '9/8/1900', '16h00-17h00', 'Physiologie animale'),
+(53, 'SVI-S4', '9/10/2020', '15h00-16h00', 'Génétique 1'),
+(54, 'SVI-S4', '9/10/2020', '16h00-17h00', 'Floristique'),
+(55, 'SVI-S4', '9/12/2020', '15h00-16h00', 'Faunistique'),
+(56, 'SVI-S4', '9/12/2020', '16h00-17h00', 'Physiologie végétale'),
+(57, 'SVI-S6-EE', '9/7/2020', '09h00-10h00', 'Microbiologie 2'),
+(58, 'SVI-S6-EE', '9/7/2020', '10h00-11h00', 'Biochimie analytique'),
+(59, 'SVI-S6-PV', '9/7/2020', '09h00-10h00', 'Microbiologie 2'),
+(60, 'SVI-S6-PV', '9/7/2020', '10h00-11h00', 'Biochimie analytique'),
+(61, 'SVI-S6-PS', '9/7/2020', '09h00-10h00', 'Microbiologie 2'),
+(62, 'SVI-S6-PS', '9/7/2020', '10h00-11h00', 'Biochimie analytique'),
+(63, 'SVI-S6-EE', '9/9/2020', '09h00-10h00', 'EE: Pollution des écosystèmes'),
+(64, 'SVI-S6-PS', '9/9/2020', '09h00-10h00', 'PS: Neurobiologie et endocrinologie'),
+(65, 'SVI-S6-PV', '9/9/2020', '09h00-10h00', 'PV: Bases de la production végétale'),
+(66, 'SVI-S6-EE', '9/9/2020', '10h00-11h00', 'EE: Phytoécologie'),
+(67, 'SVI-S6-PS', '9/9/2020', '10h00-11h00', 'PS: Nutrition'),
+(68, 'SVI-S6-PV', '9/9/2020', '10h00-11h00', 'PV : Phytopathologie'),
+(69, 'SVI-S6-EE', '9/11/2020', '09h00-10h00', ' Projet tutoré 1 '),
+(70, 'SVI-S6-PS', '9/11/2020', '09h00-10h00', ' Projet tutoré 1 '),
+(71, 'SVI-S6-PV', '9/11/2020', '09h00-10h00', ' Projet tutoré 1 '),
+(72, 'STU-S4', '9/8/2020', '15h00-16h00', 'Pétrographie sédimentaire'),
+(73, 'STU-S4', '9/8/2020', '16h00-17h00', 'Sédimentologie'),
+(74, 'STU-S4', '9/10/2020', '15h00-16h00', 'Paléontologie'),
+(75, 'STU-S4', '9/10/2020', '16h00-17h00', 'Stratigraphie'),
+(76, 'STU-S4', '9/12/2020', '15h00-16h00', 'Géo-informatique'),
+(77, 'STU-S4', '9/12/2020', '16h00-17h00', 'Chimie appliquee aux sciences de la terre'),
+(78, 'STU-S6', '9/7/2020', '09h00-10h00', 'Séries magmatiques et modèles pétrogénétiques'),
+(79, 'STU-S6', '9/7/2020', '10h00-11h00', 'Environnements sédimentaires'),
+(80, 'STU-S6', '9/9/2020', '09h00-10h00', 'Paléontologie évolutive'),
+(81, 'STU-S6', '9/9/2020', '10h00-11h00', 'Géo-matériaux et substances énergétiques'),
+(82, 'STU-S6', '9/11/2020', '09h00-10h00', ' Projet tutoré 1 '),
+(83, 'SMIA-S2', '9/7/2020', '15h00-16h00', 'Informatique 2'),
+(84, 'SMIA-S2', '9/7/2020', '16h00-17h00', 'Analyse 3 '),
+(85, 'SMIA-S2', '9/9/2020', '15h00-16h00', 'Physique 3 : Electricité'),
+(86, 'SMIA-S2', '9/9/2020', '16h00-17h00', 'Physique 4 : Optique'),
+(87, 'SMIA-S2', '9/11/2020', '15h00-16h00', 'Algèbre 3'),
+(88, 'SMIA-S2', '9/11/2020', '16h00-17h00', 'Analyse 2 '),
+(89, 'SMIA-S2', '9/14/2020', '10h00-11h00', 'Langue 2 et terminologie 2'),
+(90, 'SMA-S4', '9/8/2020', '15h00-16h00', 'Analyse 6'),
+(91, 'SMA-S4', '9/8/2020', '16h00-17h00', 'Algèbre 5'),
+(92, 'SMA-S4', '9/10/2020', '15h00-16h00', 'Algèbre 6'),
+(93, 'SMA-S4', '9/10/2020', '16h00-17h00', 'Analyse numérique 1'),
+(94, 'SMA-S4', '9/12/2020', '15h00-16h00', 'Physique 6 : Mécanique 2'),
+(95, 'SMA-S4', '9/12/2020', '16h00-17h00', 'Informatique 4'),
+(96, 'SMA-S6', '9/7/2020', '09h00-10h00', 'Probabilité'),
+(97, 'SMA-S6', '9/7/2020', '10h00-11h00', 'Complément d’algèbre'),
+(98, 'SMA-S6', '9/9/2020', '09h00-10h00', 'Analyse fonctionnelle'),
+(99, 'SMA-S6', '9/9/2020', '10h00-11h00', 'Equations et géométrie différentielles'),
+(100, 'SMA-S6', '9/11/2020', '09h00-10h00', ' Projet tutoré 1 '),
+(101, 'SMI-S4', '9/8/2020', '15h00-16h00', 'Electromagnétisme'),
+(102, 'SMI-S4', '9/8/2020', '16h00-17h00', 'Structures de données'),
+(103, 'SMI-S4', '9/10/2020', '15h00-16h00', 'Système d’exploitation 2'),
+(104, 'SMI-S4', '9/10/2020', '16h00-17h00', 'Analyse numérique'),
+(105, 'SMI-S4', '9/12/2020', '15h00-16h00', 'Architecture des ordinateurs'),
+(106, 'SMI-S4', '9/12/2020', '16h00-17h00', 'Programmation 2'),
+(107, 'SMI-S6', '9/7/2020', '09h00-10h00', 'Programmation système'),
+(108, 'SMI-S6', '9/7/2020', '10h00-11h00', 'Technologie du web avancée'),
+(109, 'SMI-S6', '9/9/2020', '09h00-10h00', 'Bases de données avancées'),
+(110, 'SMI-S6', '9/9/2020', '10h00-11h00', 'Réseaux 2'),
+(111, 'SMI-S6', '9/11/2020', '09h00-10h00', ' Projet tutoré 1 ');
 
 -- --------------------------------------------------------
 
@@ -6455,6 +6586,12 @@ INSERT INTO `convocation` (`id`, `examen`, `apogee`, `nom`, `prenom`, `mod1`, `m
 --
 
 --
+-- Index pour la table `calendrier`
+--
+ALTER TABLE `calendrier`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `convocation`
 --
 ALTER TABLE `convocation`
@@ -6463,6 +6600,12 @@ ALTER TABLE `convocation`
 --
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `calendrier`
+--
+ALTER TABLE `calendrier`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT pour la table `convocation`
