@@ -85,7 +85,7 @@
                             <br>
                             <div class="color-name">Nombres de locaux</div>
                             <div class="color-name"><i class="material-icons">domain</i></div>
-                            <div class="color-class-name">Total ( <?php //echo $total_radio; ?> ) Locaux</div>
+                            <div class="color-class-name">Total ( 284 ) Locaux</div>
                             <br>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                             <br>
                             <div class="color-name">Nombres des Fictifs</div>
                             <div class="color-name"><i class="material-icons">list_alt</i></div>
-                            <div class="color-class-name">Total ( 10 ) Fictifs</div>
+                            <div class="color-class-name">Total ( 200 ) Fictifs</div>
                             <br>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                             <br>
                             <div class="color-name">Nombres des Jours d'examen</div>
                             <div class="color-name"><i class="material-icons">settings</i></div>
-                            <div class="color-class-name">Total ( 10 ) Jours</div>
+                            <div class="color-class-name">Total ( 7 ) Jours</div>
                             <br>
                         </div>
                     </div>
@@ -270,7 +270,7 @@
                             <br><br>
 
                             <center>
-                                <a class="btn btn-info" href="#" role="button">
+                                <a class="btn btn-info" href="pdf/?apogee=<?php echo $apogee[0]; ?>" role="button">
                                     <h5>
                                         <i class="material-icons">picture_as_pdf</i>
                                         Impression de la convocation
