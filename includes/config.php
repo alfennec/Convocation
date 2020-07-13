@@ -1,9 +1,14 @@
 <?php
 
     //database configuration
-    $host       = "localhost";
+    /*$host       = "localhost";
     $user       = "root";
     $pass       = "";
+    $database   = "api_convocation";*/
+
+    $host       = "localhost";
+    $user       = "bermed";
+    $pass       = "45619poi";
     $database   = "api_convocation";
 
     $connect = new mysqli($host, $user, $pass, $database);
