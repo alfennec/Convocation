@@ -178,7 +178,7 @@ class PDF extends FPDF
         {
             getCal($GLOBALS['connect'], $GLOBALS['semestre'][$i]);
         
-            $this->SetFont('Times','B',14);
+            $this->SetFont('Times','B',12);
 
             $this->Cell(40,10,utf8_decode("Filière / Semestre : "));
             $this->Cell(0,10,$GLOBALS['semestre'][$i],0,1);
@@ -186,89 +186,89 @@ class PDF extends FPDF
              // En-tête
             //foreach($header as $col)
             
-            $this->Cell(30,15,utf8_decode("Num-Exa"),1,0,'C');
-            $this->Cell(50,15,utf8_decode("Module"),1,0,'C');
-            $this->Cell(20,15,utf8_decode("Date"),1,0,'C');
-            $this->Cell(25,15,utf8_decode("Horaire"),1,0,'C');
-            $this->Cell(60,15,utf8_decode("Local"),1,0,'C');
+            $this->Cell(20,10,utf8_decode("Num-Exa"),1,0,'C');
+            $this->Cell(55,10,utf8_decode("Module"),1,0,'C');
+            $this->Cell(20,10,utf8_decode("Date"),1,0,'C');
+            $this->Cell(25,10,utf8_decode("Horaire"),1,0,'C');
+            $this->Cell(70,10,utf8_decode("Local"),1,0,'C');
 
             $this->Ln();
 
-            $this->SetFont('Times','',12);
+            $this->SetFont('Times','',10);
 
             if($GLOBALS['mod1'][$i] == "I")
             {
-                $this->Cell(30,10,utf8_decode($GLOBALS['examen'][$i]),1);
-                $this->Cell(50,10,utf8_decode($GLOBALS['module'][0]),1);
+                $this->Cell(20,10,utf8_decode($GLOBALS['examen'][$i]),1);
+                $this->Cell(55,10,utf8_decode($GLOBALS['module'][0]),1);
                 $this->Cell(20,10,utf8_decode($GLOBALS['date_day'][0]),1);
                 $this->Cell(25,10,utf8_decode($GLOBALS['date_heure'][0]),1);
-                $this->Cell(60,10,utf8_decode($GLOBALS['local'][$i]),1);
+                $this->Cell(70,10,utf8_decode($GLOBALS['local'][$i]),1);
         
                 $this->Ln();
             }
 
             if($GLOBALS['mod2'][$i] == "I")
             {
-                $this->Cell(30,10,utf8_decode($GLOBALS['examen'][$i]),1);
-                $this->Cell(50,10,utf8_decode($GLOBALS['module'][1]),1);
+                $this->Cell(20,10,utf8_decode($GLOBALS['examen'][$i]),1);
+                $this->Cell(55,10,utf8_decode($GLOBALS['module'][1]),1);
                 $this->Cell(20,10,utf8_decode($GLOBALS['date_day'][1]),1);
                 $this->Cell(25,10,utf8_decode($GLOBALS['date_heure'][1]),1);
-                $this->Cell(60,10,utf8_decode($GLOBALS['local'][$i]),1);
+                $this->Cell(70,10,utf8_decode($GLOBALS['local'][$i]),1);
         
                 $this->Ln();
             }
 
             if($GLOBALS['mod3'][$i] == "I")
             {
-                $this->Cell(30,10,utf8_decode($GLOBALS['examen'][$i]),1);
-                $this->Cell(50,10,utf8_decode($GLOBALS['module'][2]),1);
+                $this->Cell(20,10,utf8_decode($GLOBALS['examen'][$i]),1);
+                $this->Cell(55,10,utf8_decode($GLOBALS['module'][2]),1);
                 $this->Cell(20,10,utf8_decode($GLOBALS['date_day'][2]),1);
                 $this->Cell(25,10,utf8_decode($GLOBALS['date_heure'][2]),1);
-                $this->Cell(60,10,utf8_decode($GLOBALS['local'][$i]),1);
+                $this->Cell(70,10,utf8_decode($GLOBALS['local'][$i]),1);
         
                 $this->Ln();
             }
 
             if($GLOBALS['mod4'][$i] == "I")
             {
-                $this->Cell(30,10,utf8_decode($GLOBALS['examen'][$i]),1);
-                $this->Cell(50,10,utf8_decode($GLOBALS['module'][3]),1);
+                $this->Cell(20,10,utf8_decode($GLOBALS['examen'][$i]),1);
+                $this->Cell(55,10,utf8_decode($GLOBALS['module'][3]),1);
                 $this->Cell(20,10,utf8_decode($GLOBALS['date_day'][3]),1);
                 $this->Cell(25,10,utf8_decode($GLOBALS['date_heure'][3]),1);
-                $this->Cell(60,10,utf8_decode($GLOBALS['local'][$i]),1);
+                $this->Cell(70,10,utf8_decode($GLOBALS['local'][$i]),1);
         
                 $this->Ln();
             }
 
             if($GLOBALS['mod5'][$i] == "I")
             {
-                $this->Cell(30,10,utf8_decode($GLOBALS['examen'][$i]),1);
-                $this->Cell(50,10,utf8_decode($GLOBALS['module'][4]),1);
+                $this->Cell(20,10,utf8_decode($GLOBALS['examen'][$i]),1);
+                $this->Cell(55,10,utf8_decode($GLOBALS['module'][4]),1);
                 $this->Cell(20,10,utf8_decode($GLOBALS['date_day'][4]),1);
                 $this->Cell(25,10,utf8_decode($GLOBALS['date_heure'][4]),1);
-                $this->Cell(60,10,utf8_decode($GLOBALS['local'][$i]),1);
+                $this->Cell(70,10,utf8_decode($GLOBALS['local'][$i]),1);
         
                 $this->Ln();
             }
 
             if($GLOBALS['mod6'][$i] == "I")
             {
-                $this->Cell(30,10,utf8_decode($GLOBALS['examen'][$i]),1);
-                $this->Cell(50,10,utf8_decode($GLOBALS['module'][5]),1);
+                $this->Cell(20,10,utf8_decode($GLOBALS['examen'][$i]),1);
+                $this->Cell(55,10,utf8_decode($GLOBALS['module'][5]),1);
                 $this->Cell(20,10,utf8_decode($GLOBALS['date_day'][5]),1);
                 $this->Cell(25,10,utf8_decode($GLOBALS['date_heure'][5]),1);
-                $this->Cell(60,10,utf8_decode($GLOBALS['local'][$i]),1);
+                $this->Cell(70,10,utf8_decode($GLOBALS['local'][$i]),1);
         
                 $this->Ln();
             }
 
             if($GLOBALS['mod7'][$i] == "I")
             {
-                $this->Cell(30,10,utf8_decode($GLOBALS['examen'][$i]),1);
-                $this->Cell(50,10,utf8_decode($GLOBALS['module'][6]),1);
+                $this->Cell(20,10,utf8_decode($GLOBALS['examen'][$i]),1);
+                $this->Cell(55,10,utf8_decode($GLOBALS['module'][6]),1);
                 $this->Cell(20,10,utf8_decode($GLOBALS['date_day'][6]),1);
                 $this->Cell(25,10,utf8_decode($GLOBALS['date_heure'][6]),1);
-                $this->Cell(60,10,utf8_decode($GLOBALS['local'][$i]),1);
+                $this->Cell(70,10,utf8_decode($GLOBALS['local'][$i]),1);
         
                 $this->Ln();
             }
@@ -299,13 +299,12 @@ $header="";$data="";
 
 $pdf->BasicTable($header,$data);
 
-$pdf->Ln(10);
-
+$pdf->Ln(5);
 
 $pdf->SetFont('Times','',12);
 
 $pdf->MultiCell(0,5,utf8_decode("Consigne à suivre ! N'oublier pas votre CIN, Carte d'étudiant et l'imprimé de la convocation."));
-$pdf->Ln(4);
+$pdf->Ln(2);
 $pdf->MultiCell(0,5,utf8_decode("Attention ! En cas de désaccord sur les informations ci-dessus nous saurions grè de se présenter aux services de la scolarité avant la période des examens."));
 
 

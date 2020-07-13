@@ -44,7 +44,7 @@
         $i=0;
         while ($stmt->fetch()) 
         { 
-            $GLOBALS['id_cal'][$i]  =    $data['id'];
+            $GLOBALS['id_cal'][$i]         =    $data['id'];
             $GLOBALS['semestre_cal'][$i]   =    $data['semestre'];
             $GLOBALS['date_day'][$i]       =    $data['date_day'];
             $GLOBALS['date_heure'][$i]     =    $data['date_heure'];
@@ -53,7 +53,6 @@
             $i++;
         }
   }
-
 ?>
 
     <section class="content">

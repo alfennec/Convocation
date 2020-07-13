@@ -290,11 +290,6 @@
                             <span>Déconnexion</span>
                         </a>
                     </li>
-
-                    <li>
-                        <?php echo  $total_records; ?>
-                    </li>
-
                 </ul>
             </div>
             <!-- #Menu -->
